@@ -110,10 +110,12 @@ android {
 
     signingConfigs {
         release {
-            keyAlias System.getenv("BITRISEIO_ANDROID_KEYSTORE_ALIAS")
-            keyPassword System.getenv("BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
-            storeFile file(System.getenv("HOME") + "/keystores/my_keystore.jks")
-            storePassword System.getenv("BITRISEIO_ANDROID_KEYSTORE_PASSWORD")
+            if (project.hasProperty('RNAPP_RELEASE_STORE_FILE')) {
+                storeFile file(RNAPP_RELEASE_STORE_FILE)
+                storePassword RNAPP_RELEASE_STORE_PASSWORD
+                keyAlias RNAPP_RELEASE_KEY_ALIAS
+                keyPassword RNAPP_RELEASE_KEY_PASSWORD
+            }
         }
     }
 
