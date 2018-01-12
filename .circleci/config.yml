@@ -46,6 +46,7 @@ jobs:
       - save_cache:
           name: Save Android SDK Dependencies
           paths:
+            - ~/.gradle
             - /usr/local/android-sdk-linux/build-tools/23.0.1
             - /usr/local/android-sdk-linux/platforms/android-23
             - /usr/local/android-sdk-linux/extras/android/m2repository
