@@ -6,7 +6,7 @@ jobs:
 
     docker:
       # specify the version you desire here
-      - image: circleci/android:api-23-node8-alpha
+      - image: circleci/android:api-27-node8-alpha
 
     working_directory: ~/repo
 
@@ -40,7 +40,13 @@ jobs:
           path: android
           command: ./gradlew assembleRelease
 
+      - store_artifacts:
+          path: android/app/build/outputs/apk  
+
       # run tests
       - run:
           name: Test
           command: yarn test
+
+      - store_artifacts:
+          path: coverage
