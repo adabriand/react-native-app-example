@@ -36,7 +36,7 @@ jobs:
       # Run build
       - restore_cache:
           name: Restore Android SDK Dependencies
-          key: android-sdk-dependencies-{{ .Branch }}-{{ .Revision }}
+          key: android-sdk-dependencies-v0.0.1
 
       - run:
           name: Build
@@ -46,10 +46,9 @@ jobs:
       - save_cache:
           name: Save Android SDK Dependencies
           paths:
-            - /opt/android/android-sdk-linux/build-tools/23.0.1
-            - /opt/android/android-sdk-linux/platforms/android-23
-            - /opt/android/android-sdk-linux/extras/android/m2repository
-          key: android-sdk-dependencies-{{ .Branch }}-{{ .Revision }}
+            - ~/.gradlew
+            - /opt/android/sdk
+          key: android-sdk-dependencies-v0.0.1
 
       - store_artifacts:
           path: android/app/build/outputs/apk/app-release.apk
