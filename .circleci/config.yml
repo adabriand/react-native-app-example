@@ -36,7 +36,7 @@ jobs:
       # Run build
       - restore_cache:
           name: Restore Android SDK Dependencies
-          keys: android-sdk-dependencies-{{ .Branch }}-{{ .Revision }}
+          key: android-sdk-dependencies-{{ .Branch }}-{{ .Revision }}
 
       - run:
           name: Build
