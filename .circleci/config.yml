@@ -24,7 +24,8 @@ jobs:
 
       - save_cache:
           name: Save Node Modules
-          path: node_modules
+          paths:
+            - node_modules
           key: node-modules-{{ checksum "package.json" }}
       
       - run:
